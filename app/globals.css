@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-primary: #002D5B;
 }
 
-@theme inline {
+html[data-theme="inline"] {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -23,4 +25,36 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  @apply bg-gray-50 text-gray-900 font-sans;
+}
+.btn-primary {
+  @apply w-full bg-[var(--color-primary)] text-white font-medium py-3 rounded-sm hover:bg-blue-900 transition;
+}
+
+/* Inputs */
+.input-field {
+  @apply w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600;
+}
+
+/* Tarjetas */
+.card {
+  @apply bg-white shadow-sm rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
 }
